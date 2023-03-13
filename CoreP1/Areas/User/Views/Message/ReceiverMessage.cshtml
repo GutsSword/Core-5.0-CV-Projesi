@@ -1,7 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<UserMessageNew>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ReceiverMessage";
     Layout = "~/Views/Shared/Layout3.cshtml";
 }
 
@@ -30,6 +30,7 @@
                             <th>#</th>
                             <th>Konu</th>
                             <th>Gönderen</th>
+                            <th>Tarih</th>
                             <th>Detaylar</th>
                         </tr>
                     </thead>
@@ -45,11 +46,12 @@
                                 color = "badge badge-success";
                             }*@
 
-                            <tr onclick="window.location='/User/Default/AnnouncementDetailes/@item.ID';">
+                            <tr onclick="window.location='/User/Message/ReceiverMessageDetails/@item.ID';">
                                 <td>@item.ID</td>
                                 <td>@item.Subject</td>   
+                                <td>@item.SenderName</td>
                                 <td>@Convert.ToDateTime(@item.Date).ToShortDateString()</td>
-                                <td>@item.Content</td>
+                                <td><b style="color:rebeccapurple">Tıkla</b></td>
                             </tr>
                         }
                     </tbody>

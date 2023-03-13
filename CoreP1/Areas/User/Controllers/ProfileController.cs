@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace CoreP1.Areas.User.Controllers
 {
     [Area("User")]
+    [Route("User/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<UserUser> userManager;
@@ -45,6 +46,10 @@ namespace CoreP1.Areas.User.Controllers
             }
             values.Name=p.Name;
             values.Surname = p.Surname;
+            if(p.Password != null)
+            {
+                values.PasswordHash = userManager.PasswordHasher.HashPassword(values, p.Password);
+            }
             var result=await userManager.UpdateAsync(values);
             if(result.Succeeded)
             {

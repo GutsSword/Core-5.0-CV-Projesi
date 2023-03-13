@@ -8,8 +8,6 @@ namespace CoreP1.ViewComponents.Message
 {
     public class MessageList : ViewComponent
     {
-        MessageManager messageManager = new MessageManager(new EFMessageDal());
-        [HttpGet]
         public IViewComponentResult Invoke()
         {
             return View();

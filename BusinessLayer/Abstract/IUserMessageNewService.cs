@@ -9,5 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IUserMessageNewService : IGenericService<UserMessageNew>
     {
+        List<UserMessageNew> GetListSenderMessage(string p);
+        List<UserMessageNew> GetListReceiverMessage(string p);
     }
 }

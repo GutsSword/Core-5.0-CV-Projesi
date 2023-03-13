@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CoreP1.Areas.User.Controllers
 {
     [Area("User")]
-    
+    [Route("User/[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<UserUser> signInManager;
@@ -30,7 +30,7 @@ namespace CoreP1.Areas.User.Controllers
                 var result = await signInManager.PasswordSignInAsync(p.Username, p.Password, true, false);
                 if (result.Succeeded) 
                 {
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "Profile");
                 }
                 else
                 {
@@ -38,6 +38,11 @@ namespace CoreP1.Areas.User.Controllers
                 }
             }
             return View();
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

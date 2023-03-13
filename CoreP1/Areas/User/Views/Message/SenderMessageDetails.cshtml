@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.UserMessageNew
+@{
+    ViewData["Title"] = "SenderMessageDetails";
+    Layout = "~/Views/Shared/Layout3.cshtml";
+}
+
+<h3>Giden Mesaj Detayları</h3>
+
+<div style="width:1000px; margin-top:50px;">
+    <br />
+    <label>Alıcı</label>
+    @Html.TextBoxFor(x=>x.Receiver , new {@class="form-control",@disabled="disabled"}) <br />
+    <label>Gönderici</label>
+    @Html.TextBoxFor(x=>x.Sender , new {@class="form-control",@disabled="disabled"}) <br />
+    <label>Detaylar</label>
+    <small>@Convert.ToDateTime(@Model.Date).ToShortDateString()</small> <br />
+    @Html.TextAreaFor(x=>x.Content, new {@class="form-control" ,@style="height:300px;",@disabled="disabled"}) <br />
+</div>
+

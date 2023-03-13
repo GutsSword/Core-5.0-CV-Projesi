@@ -23,6 +23,16 @@ namespace BusinessLayer.Concrete
             return userMessageNewDal.GetList(); 
         }
 
+        public List<UserMessageNew> GetListReceiverMessage(string p)
+        {
+            return userMessageNewDal.GetByFilter(x => x.Receiver == p);
+        }
+
+        public List<UserMessageNew> GetListSenderMessage(string p)
+        {
+            return userMessageNewDal.GetByFilter(x => x.Sender == p);
+        }
+
         public void Tadd(UserMessageNew t)
         {
             userMessageNewDal.Insert(t);
@@ -37,12 +47,6 @@ namespace BusinessLayer.Concrete
         {
             return userMessageNewDal.GetByID(id);
         }
-
-        public List<UserMessageNew> TGetListByFilter(string p)
-        {
-            return userMessageNewDal.GetByFilter(x => x.Receiver == p);
-        }
-
         public List<UserMessageNew> TGetListByFilter()
         {
             throw new NotImplementedException();

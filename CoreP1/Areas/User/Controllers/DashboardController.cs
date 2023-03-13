@@ -31,11 +31,11 @@ namespace CoreP1.Areas.User.Controllers
 
             //statistics
             Context c = new Context();
+            ViewBag.v6 = c.UserMessageNews.Where(x => x.Receiver == values.Email).Count();
             ViewBag.v1 = 0;
             ViewBag.v2 = c.Announcements.Count();
-            ViewBag.v3 = 0;
             ViewBag.v4 = c.Skills.Count();
-            ViewBag.v5 = 0;
+            ViewBag.v5 = c.Users.Count();
             return View();
         }
 

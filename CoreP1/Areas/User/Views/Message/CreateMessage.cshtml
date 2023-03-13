@@ -1,0 +1,21 @@
+﻿@model EntityLayer.Concrete.UserMessageNew
+@{
+    ViewData["Title"] = "CreateMessage";
+    Layout = "~/Views/Shared/Layout3.cshtml";
+}
+
+<h3>Mesaj Gönderme Sayfası</h3>
+
+<form method="post">
+    <div style="width:1000px; margin-top:50px;">
+        <br />
+        <label>Alıcı</label>
+        @Html.TextBoxFor(x=>x.Receiver , new {@class="form-control"}) <br />
+        <label>Konu</label>
+        @Html.TextBoxFor(x=>x.Subject , new {@class="form-control"}) <br />
+        <label>İçerik</label>
+        <small style="margin-left:900px;">@DateTime.Now.ToShortDateString()</small> <br />
+        @Html.TextAreaFor(x=>x.Content, new {@class="form-control" ,@style="min-height:100px;"}) <br />
+        <button class="btn btn-outline-primary">Gönder</button>
+    </div>
+</form>
