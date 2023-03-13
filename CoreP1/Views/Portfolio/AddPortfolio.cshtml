@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div style="width:10000px;">
+    @using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label>Proje İsmi</label>
+                           @Html.TextBoxFor(x=>x.Name , new {@class="form-control"}) <br/>
+                            <label>Resim Yolu (Önizleme)</label>
+                            @Html.TextBoxFor(x=>x.ImageUrl , new {@class="form-control"})<br />
+                            <label>Resim Yolu (Büyük)</label>
+                            @Html.TextBoxFor(x=>x.ImageUrl2 , new {@class="form-control"})<br />
+                             <label>Platform Iconu</label>
+                            @Html.TextBoxFor(x=>x.Platform , new {@class="form-control"})<br />
+                            <label>Proje Linki</label>
+                            @Html.TextBoxFor(x=>x.ProjectUrl , new {@class="form-control"})<br />
+                            <label>Durum</label>
+                            @Html.TextBoxFor(x=>x.Status , new {@class="form-control"})<br />
+                            <label>Tamamlanma Oranı</label>
+                            @Html.TextBoxFor(x=>x.Value , new {@class="form-control"})
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                        <a class="btn btn-dark" href="/Portfolio/Index/">İptal Et</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+

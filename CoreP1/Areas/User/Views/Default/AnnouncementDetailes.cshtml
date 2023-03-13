@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrete.Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetailes";
+    Layout = "~/Views/Shared/Layout3.cshtml";
+}
+
+
+<h3>Duyuru Detayları</h3>
+
+
+<table class="table table">
+    <tr>
+        <td>
+            @Model.Content
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="btn btn-link" href="/User/Default/Index">Geri Dön</a>
+        </td>
+    </tr>
+</table>

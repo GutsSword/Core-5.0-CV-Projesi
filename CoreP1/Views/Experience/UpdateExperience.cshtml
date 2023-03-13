@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.Experience
+
+@{
+    ViewData["Title"] = "UpdateExperince";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+<div style="width:10000px;">
+    @using (Html.BeginForm("UpdateExperience", "Experience", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Güncelleme Sayfası</h4> 
+                    <br/>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label for="exampleInputName1">ID</label>
+                            @Html.TextBoxFor(x=>x.ExperienceID , new{@class="form-control"})
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName1">İsim</label>
+                            @Html.TextBoxFor(x=>x.Name , new{@class="form-control"})
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Date</label>
+                            @Html.TextBoxFor(x=>x.Date , new{@class="form-control"})
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Resim Dosya Yolu</label>
+                            @Html.TextBoxFor(x=>x.ImageUrl , new{@class="form-control"})
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea1">Açıklama</label>
+                            @Html.TextAreaFor(x=>x.Description,6,3, new{@class="form-control"})
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                        <a class="btn btn-dark" href="/Experience/Index/">İptal Et</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

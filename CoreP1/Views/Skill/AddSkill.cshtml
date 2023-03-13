@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div style="width:10000px;">
+    @using (Html.BeginForm("AddSkill", "Skill", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label>Beceri Alanı</label>
+                            @Html.TextBoxFor(x=>x.Title , new {@class="form-control"}) <br />
+                            <label>Oran</label>
+                            @Html.TextBoxFor(x=>x.Value , new {@class="form-control"}) <br />
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+                        <a class="btn btn-dark" href="/Skill/Index/">İptal Et</a>
+                        <a class="btn btn-outline-success" target="_blank" href="/Default/Index/">Önizleme</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
