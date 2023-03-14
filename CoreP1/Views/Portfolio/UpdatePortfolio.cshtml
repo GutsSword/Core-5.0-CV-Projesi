@@ -5,7 +5,7 @@
 }
 
 <div style="width:10000px;">
-    @using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+    @using (Html.BeginForm("UpdatePortfolio", "Portfolio", FormMethod.Post))
     {
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -13,6 +13,7 @@
                     <h4 class="card-title"></h4>
                     <form class="forms-sample">
                         <div class="form-group">
+                            @Html.HiddenFor(x=>x.PortfolioID)
                             <label>Proje İsmi</label>
                             @Html.TextBoxFor(x=>x.Name , new {@class="form-control"}) <br />
                             <label>Resim Yolu (Önizleme)</label>

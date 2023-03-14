@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<UserMessageNew>
+@{
+    ViewData["Title"] = "ReceiverMessageList";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<style>
+    tr:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazardan Gelen Mesajlar</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Gönderen</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr onclick="window.location='/Contact/MessageDetail/@item.ID';">
+                                <td>@item.ID</td>
+                                <td>@item.Subject</td>
+                                <td>@item.Date</td>
+                                <td>@Convert.ToDateTime(@item.Date).ToShortDateString()</td>
+                                <td>
+                                    <a href="/Contact/DeleteMessage/@item.ID" class="btn btn-outline-danger"> Sil </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
