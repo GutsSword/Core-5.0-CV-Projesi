@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+@{
+    ViewData["Title"] = "AddMedia";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div style="width:2000px;">
+    @using (Html.BeginForm("AddMedia", "SocialMedia", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label>Platform Adı</label>
+                            @Html.TextBoxFor(m=>m.Name , new {@class="form-control"})<br />
+                            <label>URL</label>
+                            @Html.TextBoxFor(m=>m.Url , new {@class="form-control"})<br />
+                            <label>Icon</label>
+                            @Html.TextBoxFor(m=>m.Icon , new {@class="form-control"})<br />
+                            <label>Durum</label>
+                            @Html.TextBoxFor(m=>m.Status , new {@class="form-control"})<br />
+                        </div>
+                        <button class="btn btn-primary">Ekle</button>
+                        <a class="btn btn-outline-danger" href="/SocialMedia/Index/">İptal Et</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

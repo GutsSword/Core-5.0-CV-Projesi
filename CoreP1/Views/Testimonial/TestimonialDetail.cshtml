@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Testimonial
+@{
+    ViewData["Title"] = "TestimonialDetail";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label>ID</label>
+                    @Html.TextBoxFor(x=>x.TestimonialID, new{@class="form-control",@disabled="disabled",@style="background-color:#2A3038"}) <br />
+                    <label>Gönderen İsmi</label>
+                    @Html.TextBoxFor(x=>x.ClientName, new{@class="form-control",@disabled="disabled",@style="background-color:#2A3038"}) <br />
+                    <label>İçerik</label>
+                    @Html.TextAreaFor(x=>x.Comment, new{@class="form-control",@disabled="disabled",@style="background-color:#2A3038; height:200px;"}) <br />
+                    <a style="color:green" class="btn btn-link" href="/Testimonial/Index/">Geri Dön</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

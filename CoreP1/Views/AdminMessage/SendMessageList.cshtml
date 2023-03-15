@@ -1,0 +1,20 @@
+﻿@model EntityLayer.Concrete.UserMessageNew
+@{
+    ViewData["Title"] = "SendMessageList";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div style="width:10000px;">
+@using (Html.BeginForm("SendMessageList","AdminMessage",FormMethod.Post))
+{
+    <label>Alıcı Mail</label>
+    @Html.TextBoxFor(x=>x.Receiver , new {@class="form-control"}) <br />
+    <label>Konu</label>
+    @Html.TextBoxFor(x=>x.Subject , new {@class="form-control"})
+    <br />
+    <label>İçerik</label>
+    @Html.TextAreaFor(x=>x.Content , new {@class="form-control"})
+    <br />
+    <button class="btn btn-outline-success">Mesajı Gönder</button>
+}
+</div>
