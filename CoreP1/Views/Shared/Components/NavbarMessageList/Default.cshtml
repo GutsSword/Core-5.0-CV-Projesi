@@ -1,0 +1,20 @@
+﻿@using EntityLayer.Concrete
+@model List<UserMessageNew>
+
+
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+    <h6 class="p-3 mb-0">Messages</h6>
+    @foreach(var item in Model)
+    {
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+                <img src="@ViewBag.v1" alt="image" class="rounded-circle profile-pic">
+            </div>
+            <div class="preview-item-content">
+                <p class="preview-subject ellipsis mb-1">@item.SenderName kişisinden bir mesaj.</p>
+                <p class="text-muted mb-0">@Convert.ToDateTime(item.Date).ToShortDateString()</p>
+            </div>
+        </a>   
+    }
+</div>
