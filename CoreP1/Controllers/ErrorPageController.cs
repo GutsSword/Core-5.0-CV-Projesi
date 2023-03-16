@@ -11,5 +11,9 @@ namespace CoreP1.Controllers
         {
             return View();
         }
+        public IActionResult Error404()
+        {
+            return View();
+        }
     }
 }
