@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreP1.Areas.User.Controllers
 {
+    [AllowAnonymous]
     [Area("User")]
     [Route("User/[controller]/[action]")]
     public class LoginController : Controller

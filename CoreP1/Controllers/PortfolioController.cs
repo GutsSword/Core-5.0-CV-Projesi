@@ -3,11 +3,14 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramwork;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language;
+using System.Data;
 
 namespace CoreP1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PortfolioController : Controller
     {
         PortfolioManager portfolioManager = new PortfolioManager(new EFPortfolioDal());

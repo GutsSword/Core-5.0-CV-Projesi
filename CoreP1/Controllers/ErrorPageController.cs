@@ -5,7 +5,7 @@ using System.Data;
 namespace CoreP1.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class DashboardController : Controller
+    public class ErrorPageController : Controller
     {
         public IActionResult Index()
         {

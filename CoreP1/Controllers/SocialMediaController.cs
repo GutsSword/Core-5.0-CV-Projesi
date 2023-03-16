@@ -1,10 +1,13 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramwork;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace CoreP1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SocialMediaController : Controller
     {
         SocialMediaManager socialMediaManager = new SocialMediaManager(new EFSocialMediaDal());
