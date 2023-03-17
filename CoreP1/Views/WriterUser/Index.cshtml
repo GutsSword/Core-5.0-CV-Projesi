@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete
+@model List<UserUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout2.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button class="btn btn-outline-success" type="button" id="btngetlistall">Verileri Getir</button>
+        <button class="btn btn-outline-success" type="button" id="btngetlistall"> Kaydet </button>
+    </div>
+</div>
+
+<h4 class="text-center">Yazar Listesi</h4> 
+<div class="p-2" id="listuser">
+</div>
+<br />
+<div class="col-md-12">
+    <input type="text" class="form-control" id="inpname" placeholder="Ad" /> <br />
+    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" /> <br />
+    <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adı" /> <br />
+    <input type="text" class="form-control" id="inpmail" placeholder="Mail Adresi" /> <br />
+</div>
+
+@section Scripts
+{
+    <script>
+        $("#btngetlistall").click(function(){
+            $.ajax({
+                contentType : "application/json",
+                datatype:"json",
+                type:"Get",
+                url:"/WriterUser/ListUser/",
+                success:function(a){
+                    let users=jQuery.parseJSON(a);
+                    console.log(users);
+                }
+            });
+        });
+    </script>
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
